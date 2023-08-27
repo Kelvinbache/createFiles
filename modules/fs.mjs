@@ -1,10 +1,17 @@
-import { mkdir, writeFile, readdir } from "node:fs/promises";
+import { mkdir, writeFile, rm } from "node:fs/promises";
+import { adress, adressFile } from "./path.mjs";
 
-const fileCreate = await mkdir("hola mundo", { recursive: true }); // se inicia mediante promesas en este caso
+//direcciones donde estamos guardando los archivos
+const routes = adress();
+const routesFiles = adressFile();
 
+// creando la carpeta
+const fileCreate = await mkdir(routes, { recursive: true }); // se inicia mediante promesas en este caso
+
+//Creando el documento
 async function writerCreate() {
   const content = "hola mundo";
-  const writer = await writeFile("hola.txt", content);
+  const writer = await writeFile(routesFiles, content);
 
   return writer;
 }
@@ -12,3 +19,9 @@ async function writerCreate() {
 writerCreate().catch((err) => {
   console.error(err);
 });
+
+//borrando el archivo
+setTimeout(() => {
+  const remove = rm(routesFiles,{recursive:true});
+  console.log("archivo borrado");
+}, 10000);
