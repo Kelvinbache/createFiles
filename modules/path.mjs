@@ -1,4 +1,5 @@
-import { dirname, join } from "node:path";
+import { join } from "node:path";
+
 
 export function adress() {
   const routerJoin = join('archivos');
@@ -6,6 +7,6 @@ export function adress() {
 }
 
 export function adressFile(){
-   const routerJoin = join('archivos','hola.txt');
+   const routerJoin = join('archivos',"hola.txt");
    return routerJoin;
 }
