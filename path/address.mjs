@@ -1,7 +1,7 @@
-import { join } from "path";
+import { join} from "path";
 
-export function adressFile() {
-  const address = join("/files","file");
+export function adressFile() { 
+  const address = join('directory','file');  //solo acepta un nombre a la carpeta
   return address;
 }
 

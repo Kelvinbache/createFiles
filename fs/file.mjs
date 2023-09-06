@@ -1,8 +1,8 @@
 import { mkdir } from "node:fs/promises";
-import { adressFile} from "./path/address.js";
+import { address } from "../imports/imports.mjs"
 
 try {
-  const file = mkdir(adressFile);
+  const file = mkdir(address);
   console.log(`carpeta creada:${file}`);
 
 } catch (err) {
