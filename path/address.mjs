@@ -1,7 +1,7 @@
 import { join } from "path";
 
 export function adressFile() {
-  const address = join("files/file");
+  const address = join("/files","file");
   return address;
 }
 
