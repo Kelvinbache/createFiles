@@ -1,10 +1,10 @@
+"use strict";
 import { join } from "path";
-
 
 //creando la direccion a creadora de carpetas
 export function adressFile() {
-  const address = join("directory", "file"); //solo acepta un nombre a la carpeta
-  return address;
+  const createAddress = join("documents", "directoryFile", "file");
+  return createAddress;
 }
 
 //creando la direccion a creadora de archivos
