@@ -1,8 +1,11 @@
-import { join } from "path";
+"use strict";
+import { join, normalize} from "path";
+
+
 
 export function adressFile() {
-  const address = join("/files","file");
-  return address;
+  const createAddress = join("documents","directoryFile","file");
+  return createAddress;
 }
 
 export function adressArchive() {
