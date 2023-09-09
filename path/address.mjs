@@ -1,5 +1,16 @@
 "use strict";
+
 import { join } from "path";
+
+export function adressDocuments() {
+  const createDocumemt = join("documents");
+  return createDocumemt;
+}
+
+export function adressDirectoryFile() {
+  const createDirectoryFile = join("documents/directoryFile");
+  return createDirectoryFile;
+}
 
 //creando la direccion a creadora de carpetas
 export function adressFile() {
