@@ -1,10 +1,18 @@
 "use strict";
-import { join, normalize} from "path";
+import { join } from "path";
 
+export function adressDocuments() {
+  const createDocumemt = join("documents");
+  return createDocumemt;
+}
 
+export function adressDirectoryFile() {
+  const createDirectoryFile = join("directoryFile");
+  return createDirectoryFile;
+}
 
 export function adressFile() {
-  const createAddress = join("documents","directoryFile","file");
+  const createAddress = join("documents", "directoryFile", "file");
   return createAddress;
 }
 
