@@ -10,7 +10,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["file"],
+  "keywords": [
+    "file"
+  ],
   "author": "kelvin alejandro abache vanegas",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  }
 }
