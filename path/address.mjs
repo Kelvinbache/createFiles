@@ -1,8 +1,20 @@
-import { join} from "path";
+"use strict";
 
-export function adressFile() { 
-  const address = join('directory','file');  //solo acepta un nombre a la carpeta
-  return address;
+import { join } from "path";
+
+export function adressDocuments() {
+  const createDocumemt = join("documents");
+  return createDocumemt;
+}
+
+export function adressDirectoryFile() {
+  const createDirectoryFile = join("documents/directoryFile");
+  return createDirectoryFile;
+}
+
+export function adressFile() {
+  const createAddress = join("documents", "directoryFile", "file");
+  return createAddress;
 }
 
 export function adressArchive() {
