@@ -20,6 +20,6 @@ export function adressFile() {
 
 //creando la direccion a creadora de archivos
 export function adressArchive() {
-  const address = join("file", "hola-mundo.txt");
+  const address = join("documents", "directoryFile", "file", "hola-mundo.txt");
   return address;
 }
