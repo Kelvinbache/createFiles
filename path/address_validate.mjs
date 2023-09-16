@@ -1,14 +1,24 @@
 "use strict";
 
-import {} from "path";
-import { readdir } from "fs";
+import { parse } from "path";
+import { readdir, stat } from "node:fs/promises";
 
-readdir(".", (err,data) => {
-  if (err) console.error("tenemos un errro");
-  else {
-    data.forEach(file => console.log(file)) 
+async function ls(diretions) {
+  let addressOfTerminal;
+
+  try {
+    addressOfTerminal = await readdir(diretions);
+  } catch (err) {
+    console.error("tenemos un error al mostrar los archivos");
   }
-});
+  for (const file of addressOfTerminal) {
+    if (file === "documents") {
+      console.log(parse(file));
+    }
+  }
+}
 
-//seguir trabajando en ver las rutas 
+ls(".");
+
+//seguir trabajando en ver las rutas
 // despues convertir eso en una direccion y despues pasar eso a creadora de archivos
