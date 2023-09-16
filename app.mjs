@@ -6,7 +6,7 @@ const createWriterFile = createWeite; // creadora de archivos
 
 createFile
   .then((data) => {
-    console.log("archivos creados con exicto");
+    console.log("archivos creados con exicto",data);
   })
   .catch((err) => {
     if (err !== "EEXIST") console.error(`esta direccion existe: ${err.path}`);
