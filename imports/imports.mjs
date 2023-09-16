@@ -12,7 +12,6 @@ export const adressFille = adressFile();
 export const addressArchive = adressArchive();
 
 
-
 //comienza la aplicacions
-export const createFiles = active();
-export const createWrirteFile = createWriteFile();
+export const createFiles = active;
+export const createWrirteFile = createWriteFile;
