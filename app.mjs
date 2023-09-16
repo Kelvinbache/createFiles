@@ -1,9 +1,8 @@
 import { createFiles } from "./imports/imports.mjs";
-//import { createWrirteFile } from "./imports/imports.mjs";
-import pc from "picocolors";
+import { createWeite} from "./imports/imports.mjs";
 
 const createFile = createFiles; //creadora de carpeta
-//const createWriterFile = createWrirteFile(); // creadora de archivos
+const createWriterFile = createWeite; // creadora de archivos
 
 createFile
   .then((data) => {
@@ -14,7 +13,10 @@ createFile
     else if (err) console.error(err);
   });
 
-/**
- * tareas que hay que volver a plantiar
- * 1) HAcer
- */
+createWriterFile
+  .then((data) => {
+    console.log("archivo creado con exito",data);
+  })
+  .catch((err) => {
+    if(err.code === 'ENOENT') console.error("ruta del archivo no encontrada",err.path);
+  });
