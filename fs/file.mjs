@@ -1,16 +1,13 @@
 'user strict'
 
 import { mkdir } from "node:fs/promises";
-import { address } from "../imports/imports.mjs";
-
-const { file, adressDocuments, adressDirectoryFile } = address; //importando mas de una direccion 
 
 //creando las carpetas de forma asincrona
 
 function createAddressDocuments() {
   return new Promise((resolve, rejecta) => {
     try {
-      const createMkdir = mkdir(adressDocuments);
+      const createMkdir = mkdir("documents");
       resolve(createMkdir);
     } catch (err) {
       rejecta("tenemos un error al crear la carpeta general",err);
@@ -21,7 +18,7 @@ function createAddressDocuments() {
 function createAddressDirectoryFile() {
   return new Promise((resolve, rejecta) => {
     try {
-      const createMkdir = mkdir(adressDirectoryFile);
+      const createMkdir = mkdir("documents/directory");
       resolve(createMkdir);
     } catch (err) {
       rejecta("tenemos un error al crear la carpeta de Directorio",err);
@@ -32,7 +29,7 @@ function createAddressDirectoryFile() {
 function createAddressFile() {
   return new Promise((resolve, rejecta) => {
     try {
-      const createMkdir = mkdir(file);
+      const createMkdir = mkdir('documents/directory/file');
       resolve(createMkdir);
     } catch (err) {
       rejecta("tenemos un error al crear la carpeta de file",err);
