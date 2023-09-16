@@ -1,28 +1,14 @@
 "use strict";
 
-import { dirname, isAbsolute, basename, format, normalize, parse } from "path";
-import { adressFile } from "./address.mjs";
+import {} from "path";
+import { readdir } from "fs";
 
-const adress = adressFile();
+readdir(".", (err,data) => {
+  if (err) console.error("tenemos un errro");
+  else {
+    data.forEach(file => console.log(file)) 
+  }
+});
 
-function valueAdress(address) {
-  const dirName = address;
-
-  if (isAbsolute(dirName) === true) return  "direccion no valida";
-  else return "direcion esta correcta";
-}
-
-console.log(valueAdress(adress));
-
-//crear una arreglo que guarde datos viejos
-//comparar datos viejo con nuevos
-
-// const fortt = format({ //crear una direcion es casi igual que join
-//   root:"/",
-//   name:adress,
-//   dir:"directory"
-
-// });
-
-//const dirName = dirname(adress); // nos devuelve un parte de la direccion
-//const isabsolute = isAbsolute(dirName); // valida la direcction que estamos pasando
+//seguir trabajando en ver las rutas 
+// despues convertir eso en una direccion y despues pasar eso a creadora de archivos
