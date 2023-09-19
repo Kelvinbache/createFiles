@@ -1,24 +1,27 @@
 "use strict";
 
-import { parse } from "path";
-import { readdir, stat } from "node:fs/promises";
+import { stat } from "fs/promises";
+import { opendir } from "fs/promises";
 
-async function ls(diretions) {
-  let addressOfTerminal;
+const address = "/documents/directory/file";
 
+async function addressValidate() {
   try {
-    addressOfTerminal = await readdir(diretions);
+    const openAddress = await stat(address);
+    return openAddress;
   } catch (err) {
-    console.error("tenemos un error al mostrar los archivos");
-  }
-  for (const file of addressOfTerminal) {
-    if (file === "documents") {
-      console.log(parse(file));
-    }
+    return err;
   }
 }
 
-ls(".");
+addressValidate().then(data =>{
+  console.log(data);
 
-//seguir trabajando en ver las rutas
-// despues convertir eso en una direccion y despues pasar eso a creadora de archivos
+}).catch(err =>{
+  if(err.code === "ENOENT") console.log('direccion no encontrada')
+   console.error("tenemos un error",err)
+})
+
+//validar la ruta
+// ver si el archivo esta creado
+// controlar los errores de crearcion
