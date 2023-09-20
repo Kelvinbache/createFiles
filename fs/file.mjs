@@ -1,45 +1,22 @@
 "user strict";
 
 import { mkdir } from "node:fs/promises";
-import { createWeite } from "../imports/imports.mjs";
+import { createWriteFile } from "./writeFile.mjs";
 
-function createAddressDocuments() {
-  return new Promise((resolve, rejecta) => {
-    try {
-      const createMkdir = mkdir("documents");
-      resolve(createMkdir);
-    } catch (err) {
-      rejecta("tenemos un error al crear la carpeta general",err);
-    }
-  });
+async function createMkdirs() {
+  try {
+    const documents = await mkdir("documents");
+    const directory = await mkdir("documents/directory");
+    const file = await mkdir("documents/directory/file");
+    c
+  } catch (err) {
+    return err;
+  }
 }
 
-function createAddressDirectoryFile() {
-  return new Promise((resolve, rejecta) => {
-    try {
-      const createMkdir = mkdir("documents/directory");
-      resolve(createMkdir);
-    } catch (err) {
-      rejecta("tenemos un error al crear la carpeta de Directorio",err);
-    }
-  });
+export async function initApp(putName) {
+  const mkdir = await createMkdirs();
+  const write = await createWriteFile(putName);
 }
 
-function createAddressFile() {
-  return new Promise((resolve, rejecta) => {
-    try {
-      const createMkdir = mkdir('documents/directory/file');
-      resolve(createMkdir);
-    } catch (err) {
-      rejecta("tenemos un error al crear la carpeta de file",err);
-    }
-  });
-}
-
-//Haciendo asincronismo para esperar las carpetas
-export async function active() {
-   await createAddressDocuments();
-   await createAddressDirectoryFile();
-   await createAddressFile();
-}
-
+//hacer otra funcion donde espere los datos

@@ -1,26 +1,23 @@
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { createFiles } from "../imports/imports.mjs";
 
 // 'ERR_INVALID_ARG_TYPE' --> Falta poner el contenido del documento
 // 'ENOENT' --> direccion no existente
 
-
-
-async function createWriteFile() {
+export async function createWriteFile(putName) {
   try {
-    const address = join("documents","directory","file",);
-    const createWeite = await writeFile(address + "/hola.txt" ,"hola mundo");
-
+    const address = join("documents", "directory", "file");
+    const createWeite = await writeFile(address + `/${putName}.txt`, "hola mundo");
+    console.log("archivo creado con exito");
   } catch (err) {
-     if(err.code !== "ENODENT") console.error("ruta no existe",err.path);
-     else console.error (err)
+    if (err.code === "ENOENT") {
+      console.error(`las direccion no existe ${err.path}`);
+    } else if (err.code === "EEXIST") {
+      console.error(`este archivo ya existe ${err.path}`);
+    } else {
+      console.error(err);
+    }
   }
 }
 
-export function initWrite() {
-   createWriteFile();
-}
-
-
-//intentar hacer que el archivo se cree despues de las carpetas
+//ver los errores al crear los archivos

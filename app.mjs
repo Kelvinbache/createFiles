@@ -1,13 +1,9 @@
 import { createFiles } from "./imports/imports.mjs";
+// para poner un nombre a un archivo nuevo --> N=nombre node app.mjs
+const putName = process.env.N;
 
-const createFile = createFiles; //creadora de carpeta
+if (putName === undefined) {
 
-createFile
-  .then((data) => {
-     console.log("archivos creados con exicto");
-      
-  })
-  .catch((err) => {
-    if (err !== "EEXIST");
-    else if (err) console.error(err);
-  });
+} else {
+  createFiles(putName); //creadora de carpeta
+}
