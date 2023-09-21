@@ -1,5 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { errorInWrite} from "../errors/errors.mjs";
+import { answer } from "../answer/answer.mjs";
 
 // 'ERR_INVALID_ARG_TYPE' --> Falta poner el contenido del documento
 // 'ENOENT' --> direccion no existente
@@ -7,16 +9,10 @@ import { join } from "node:path";
 export async function createWriteFile(putName) {
   try {
     const address = join("documents", "directory", "file");
-    const createWeite = await writeFile(address + `/${putName}.txt`, "hola mundo");
-    console.log("archivo creado con exito");
+    const createWeite = await writeFile( address + `/${putName}.txt`, "hola mundo",'utf-8');
+    answer(createWeite)
   } catch (err) {
-    if (err.code === "ENOENT") {
-      console.error(`las direccion no existe ${err.path}`);
-    } else if (err.code === "EEXIST") {
-      console.error(`este archivo ya existe ${err.path}`);
-    } else {
-      console.error(err);
-    }
+    errorInWrite(err);
   }
 }
 
