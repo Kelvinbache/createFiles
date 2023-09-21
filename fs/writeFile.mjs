@@ -9,7 +9,7 @@ import { answer } from "../answer/answer.mjs";
 export async function createWriteFile(putName) {
   try {
     const address = join("documents", "directory", "file");
-    const createWeite = await writeFile( address + `/${putName}.txt`, "hola mundo",'utf-8');
+    const createWeite = await writeFile( address + `/${putName}`, "hola mundo",'utf-8');
     answer(createWeite)
   } catch (err) {
     errorInWrite(err);

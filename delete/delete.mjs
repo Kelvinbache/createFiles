@@ -1,14 +1,11 @@
 import { rm } from "node:fs/promises";
-import { join } from "node:path";
 
-
-async function remove() {
+export async function remover(nameFile) {
   try {
-    const rmFile = await rm("/documents/directory/file/hello.txt");
-    console.log("archivo borrado con exicto", rmFile);
+    const removerFile = await rm(`documents/directory/file/${nameFile}`);
+    console.log("archivo removido con exicto");
   } catch (err) {
-    console.error(err)
+    console.error("tenemos un problema removiendo el archivo");
   }
 }
 
-remove()
