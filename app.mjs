@@ -9,22 +9,23 @@ const putName = process.env.NAME;
 const seeWrite = process.env.TW;
 const deleteWrites = process.env.DT;
 
-if (putName === undefined) {
-  console.log('......')
-} else {
-  createFiles(putName); //creadora de carpeta
+
+function init(){
+  if(putName !== undefined){
+       createFiles(putName);
+
+  } else if(seeWrite === 'see'){
+      travelTheWrite(seeWrite);  
+ 
+    } else if(deleteWrites !== undefined){
+       deleteWrite(deleteWrites);
+
+  } else {
+    console.log('para iniciar el programa debe escribir algo')
+  }
 }
 
-if (seeWrite === "see") {
-  travelTheWrite();
-}
-
-if(deleteWrites === " "){
-  console.error('...........')
-} else {
-  deleteWrite(deleteWrites)
-}
-
+init();
 
 //hacer una condicion para cada comando
 //Volver a escribir los archivos que queremos ignorar con gitIgnore

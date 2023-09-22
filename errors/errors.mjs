@@ -1,21 +1,19 @@
-export function errorInFile(err) {
-  if (err.code === "EEXIST") {
-  } else if (err.code === "ENOENT") {
-    console.error("direccion no validad en:", err.path);
-  } else {
-    console.error(err);
+export function errors(err) {
+  switch (err.syscall) {
+    case "mkdir":
+      console.error("..............................................");
+      break;
+    case "lstat":
+      console.error(
+        `tenemos un error borrando, el tipo de error es:${err.code} y la direccion es:${err.path}`);
+      break;
+     case "scandir":
+      console.error(
+        `tenemos un error recorriendo los archivos, el tipo de error es:${err.code} y la direccion es:${err.path}`
+      );
+      break;
+    default:
   }
 }
-
-export function errorInWrite(err) {
-  if (err.code === "EEXIST") {
-    console.error("este archivo ya esta creado con este nombre", err.path);
-  } else if (err.code === "ENOENT") {
-    console.error("direccion no validad en:", err.path);
-  } else {
-    console.error(err);
-  }
-}
-
 
 //usar una sola funcion para toda la aplicacion

@@ -2,7 +2,8 @@
 
 import { mkdir } from "node:fs/promises";
 import { createWriteFile } from "./writeFile.mjs";
-import { errorInFile } from "../errors/errors.mjs";
+import { errors } from "../errors/errors.mjs";
+
 
 async function createMkdirs() {
   try {
@@ -10,7 +11,8 @@ async function createMkdirs() {
     const directory = await mkdir("documents/directory");
     const file = await mkdir("documents/directory/file");
   } catch (err) {
-    errorInFile(err);
+    errors(err)
+
   }
 }
 
