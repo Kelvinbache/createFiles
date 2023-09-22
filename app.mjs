@@ -24,3 +24,7 @@ if(deleteWrites === " "){
 } else {
   deleteWrite(deleteWrites)
 }
+
+
+//hacer una condicion para cada comando
+//Volver a escribir los archivos que queremos ignorar con gitIgnore

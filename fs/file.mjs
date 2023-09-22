@@ -20,3 +20,4 @@ export async function initApp(putName) {
 }
 
 //hacer otra funcion donde espere los datos
+//Poner una funcion de respuesta

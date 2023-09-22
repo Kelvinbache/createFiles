@@ -9,3 +9,4 @@ export async function remover(nameFile) {
   }
 }
 
+//Intentar manejar las respuestas inesperadas de las otras funciones 

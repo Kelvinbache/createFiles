@@ -16,3 +16,6 @@ export function errorInWrite(err) {
     console.error(err);
   }
 }
+
+
+//usar una sola funcion para toda la aplicacion
