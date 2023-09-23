@@ -1,7 +1,7 @@
 export function errors(err) {
   switch (err.syscall) {
     case "mkdir":
-      console.error("..............................................");
+      console.error(".............................................."); //solucionar el problema de mostrar estos caracteres
       break;
     case "lstat":
       console.error(

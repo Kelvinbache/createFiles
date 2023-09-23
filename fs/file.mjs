@@ -12,7 +12,6 @@ async function createMkdirs() {
     const file = await mkdir("documents/directory/file");
   } catch (err) {
     errors(err)
-
   }
 }
 
@@ -21,5 +20,4 @@ export async function initApp(putName) {
   const write = await createWriteFile(putName);
 }
 
-//hacer otra funcion donde espere los datos
 //Poner una funcion de respuesta

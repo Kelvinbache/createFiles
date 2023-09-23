@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { answer } from "../answer/answer.mjs";
+import { answerOFWrite} from "../answer/answer.mjs";
 import { errors } from "../errors/errors.mjs";
 
 
@@ -12,7 +12,7 @@ export async function createWriteFile(putName) {
  
     const address = join("documents", "directory", "file");
     const createWeite = await writeFile( address + `/${putName}`, "hola mundo",'utf-8');
-    answer(createWeite)
+    answerOFWrite(putName)
  
   } catch (err) {
     errors(err);
